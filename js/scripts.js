@@ -32,7 +32,7 @@ let pokemonRepository = (function () {
 })();
 
 
-pokemonRepository.forEach(function (getAll) {
+pokemonRepository.getAll().forEach(function (getAll) {
     if (getAll.height > 3) {
       // Anything over a height of the 3 is considered big
       document.write(getAll.name + ' (height: ' + getAll.height + ')' + ' - Wow that\'s big!');
