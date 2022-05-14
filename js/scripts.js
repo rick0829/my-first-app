@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-
+//Opens or closes Modal
   function showModal(title, text) {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.innerHTML = '';
@@ -26,7 +26,7 @@ let pokemonRepository = (function () {
 
     modalContainer.classList.add('is-visible')
   }
-
+//Hides modal when esc key is pressed or click outside the modal
   function hideModal() {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
@@ -47,16 +47,15 @@ let pokemonRepository = (function () {
     hideModal();
   }
 });
-
+// call function to get name and height goes here
 document.querySelector('#show-modal').addEventListener('click', () => {
-  showModal('Modal title', 'This is the modal content!');
+  showModal();
 });
 
   let closeButtonElement = document.createElement('button');
   closeButtonElement.classList.add('modal-close');
   closeButtonElement.innerText = 'Close';
   closeButtonElement.addEventListener('click', hideModal);
-})
 
   let pokemonList = [];
   // Data from the pokemon api
@@ -115,7 +114,7 @@ document.querySelector('#show-modal').addEventListener('click', () => {
 
   function showDetails(item) {
     pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);
+      showModal(pokemon.name, pokemon.height);
     });
   }
 
