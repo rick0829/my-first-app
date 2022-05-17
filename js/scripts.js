@@ -114,7 +114,7 @@ document.querySelector('#show-modal').addEventListener('click', () => {
 
   function showDetails(pokemon) {
     pokemonRepository.loadDetails(pokemon).then(function () {
-      showModal(pokemon.name, detailsUrl.height);
+      showModal(pokemon.name, details.height);
     });
   }
 
