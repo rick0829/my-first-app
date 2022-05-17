@@ -112,9 +112,9 @@ document.querySelector('#show-modal').addEventListener('click', () => {
     });
   }
 
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      showModal(pokemon.name, pokemon.height);
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function () {
+      showModal(pokemon.name, detailsUrl.height);
     });
   }
 
