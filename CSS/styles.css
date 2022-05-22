@@ -4,18 +4,26 @@ h1 {
 }
 
 div {
-  color: red;
+  color: black;
   font-size: 18px;
   padding-left: 10px;
 }
 
-.button-class {
+ul {
+  list-style-type: none;
+ }
+ 
+li {
+  padding-bottom: 10px
+}
+
+button {
   background-color: #072A6C;
   border: none;
   color: white;
   font-size: 20px;
   padding: 16px 32px;
-  margin: 4px 2px;
+  margin-bottom: 12px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -24,6 +32,10 @@ div {
 }
 
 #modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
   position: fixed;
   padding: 20px;
   box-sizing: border-box;
@@ -72,11 +84,9 @@ div {
   margin-bottom: 0;
 }
 
-#modal-container {
-  display: none;
-}
-
-#modal-container.is-visible {
-  /* CSS for modal container - add your own desired CSS styles here */
+.pokemon-front-image {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
