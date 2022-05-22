@@ -8,32 +8,16 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
 
-  // NOT MY CODE function to add single pokemon to the pokemonList from outside IIFE
-    function add(pokemon) {
-      // added condition if true
-      if (typeof pokemon === 'object' && 'name' in pokemon && 'detailsUrl' in pokemon ) {
-        return pokemonList.push(pokemon);
-      } else {
-        return alert('To add a pokémon, pokemon type should be object + keys should be {name: , height: , types:[]}')
-      }
-    }
-
-  /* MY CODE function add(pokemon) {
+  // Function to add single pokemon to the pokemonList from outside IIFE
+  function add(pokemon) {
     return pokemonList.push(pokemon);
   }
-  */
 
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function () {
       showModal(pokemon);
     });
   }
-
-
-
-
-
-
 
   //Opens or closes Modal
   let modalContainer = document.querySelector('#modal-container');
@@ -45,19 +29,22 @@ let pokemonRepository = (function () {
     let modal = document.createElement('div');
     modal.classList.add('modal');
 
-// Model content
+    // Model content
     let closeButtonElement = document.createElement('button');
     closeButtonElement.classList.add('modal-close');
     closeButtonElement.innerText = 'Close';
     closeButtonElement.addEventListener('click', hideModal);
+
     // Title
     let titleElement = document.createElement('h1');
     titleElement.classList.add('pokemon-title-name');
     titleElement.innerText = pokemon.name.toUpperCase();
+
     // Heightinfo
     let contentElement = document.createElement('p');
     contentElement.classList.add('pokemon-content-height');
     contentElement.innerText = `Height: ${pokemon.height}`;
+
     // Picture
     let imageElement = document.createElement('img');
     imageElement.classList.add('pokemon-front-image');
@@ -73,8 +60,7 @@ let pokemonRepository = (function () {
 
   }
 
-//Hides modal when esc key is pressed or click outside the modal
-// DOES THE VARIABLE NEED TO BE REMOVED??????????????????????
+  //Hides modal when esc key is pressed or click outside the modal
   function hideModal() {
 
     modalContainer.classList.remove('is-visible');
@@ -91,20 +77,21 @@ let pokemonRepository = (function () {
   // Click outside modal I KNOW THIS WORKS DOES IT NEED TO BE CHANGED???????
 
   modalContainer.addEventListener('click', (e) => {
-  // Since this is also triggered when clicking INSIDE the modal
-  // We only want to close if the user clicks directly on the overlay
-  let target = e.target;
-  if (target === modalContainer) {
+
+    // Since this is also triggered when clicking INSIDE the modal
+    // We only want to close if the user clicks directly on the overlay
+    let target = e.target;
+    if (target === modalContainer) {
       hideModal();
     }
   });
 
-//   WHAT IS THIS??? call function to get name and height goes here
+  //call function to get name and height goes here
   function clickHandlerPokemonButton(button, pokemon) {
     button.addEventListener('click', function () {
       showDetails(pokemon);
-    })
-}
+    });
+  }
 
   // Shows pokemon list in browswer
   function addListItem(pokemon) {
@@ -116,7 +103,6 @@ let pokemonRepository = (function () {
     button.innerText = pokemon.name;
     button.classList.add('pokemon-list-button');
     listItem.appendChild(button);
-// button for?
     clickHandlerPokemonButton(button, pokemon);
 
   }
@@ -150,14 +136,9 @@ let pokemonRepository = (function () {
       item.types = details.types;
     }).catch(function (e) {
       console.error(e);
-    })
+    });
   }
 
-
-
-
-
-/// OK O K OK O K
   // Returning getAll add, add functions
   return {
     add: add,
@@ -166,7 +147,7 @@ let pokemonRepository = (function () {
     loadList: loadList,
     loadDetails: loadDetails,
     showDetails: showDetails,
-  }
+  };
 })();
 
 pokemonRepository.loadList().then(function () {
