@@ -1,3 +1,4 @@
+{{
 	"rules": {
 		"no-negated-in-lhs": "error",
 		"no-cond-assign": [
@@ -107,7 +108,9 @@
 		"semi-spacing": [
 			"error",
 			{
-			"after": true
+				// Because of the `for ( ; ...)` requirement
+				// "before": true,
+				"after": true
 			}
 		],
 		"no-extra-semi": "error",
@@ -146,4 +149,5 @@
 			}
 		],
 		"no-multiple-empty-lines": 2
-	
+	}
+}

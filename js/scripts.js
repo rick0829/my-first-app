@@ -125,12 +125,6 @@ let pokemonRepository = (function () {
   };
 })();
 
-/* pokemonRepository.loadList().then(function () {
-  //Data is loaded here
-  pokemonRepository.getAll().forEach(function (pokemon) {
-      pokemonRepository.addListItem(pokemon);
-    });
-}); */
 
 pokemonRepository.loadList().then(() => {
   pokemonRepository
